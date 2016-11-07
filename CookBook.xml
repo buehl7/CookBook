@@ -4,8 +4,8 @@
 <book xmlns="http://docbook.org/ns/docbook"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
     <info>
-        <title/>
-        <author>
+        <title>Text for the Title</title>
+        <author><personname>Jonathan Buehl</personname></author>
             <orgname/>
             <address>
 <city/>
@@ -13,8 +13,7 @@
 <postcode/>
 <country/>
             </address>
-            <email/>
-        </author>
+            <email/>   
     </info>
     <part>
         <title/>
