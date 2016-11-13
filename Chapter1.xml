@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.0/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.0/rng/docbook.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
+       <title>Chapter Title</title>
+    <section>
+        <title>Basic formatting</title>
+        <para>Paragraphs are wrapped in "para" and "/para" tags. To add particual font effects to indidual words and sentences, you can apply tags before and after the items you wish to modify.</para>
+        <para>italics:<emphasis>This is a paragraph.</emphasis></para>
+        <para>bold: <emphasis role="bold">This is a paragraph.</emphasis></para>
+        <para>underline: <emphasis role="underline">This is a paragraph.</emphasis></para>
+        <para>superscript. The next line includes a superscript and subscript.</para> 
+        <para>The calculation is X<subscript>a</subscript><superscript>2</superscript> + X<subscript>a</subscript><superscript>3</superscript>.</para>
+        
+    </section> 
+       
+    <section>
+        <title>Sections and Headings</title>
+        <subtitle>Recusive or Explicit</subtitle>
+        <para>This is a paragraph.</para>
+        <section><title>Recursive Sections</title>
+            <para>This is a paragraph.</para>
+            <section><title>Heading 3</title>
+                <para>This is a paragraph.</para>
+                <section><title>Heading 4</title>
+                    <para>This is a paragraph.</para>
+                    <section><title>Heading 5</title>
+                        <para>This is a paragraph.</para>
+                        <section><title>Heading 6</title>
+                            <para>This is a paragraph.</para>
+                            <section><title>Heading 7</title>
+                                <para>This is a paragraph.</para>
+                            </section>
+                        </section>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+    <sect2>
+        <title>Explicit Sections</title>
+        <para>This is a paragraph.</para>
+    </sect2>
+    <sect3><title>Heading 3</title>
+        <para>This is a paragraph.</para>
+    </sect3>
+    <sect4><title>Heading 4</title>
+        <para>This is a paragraph.</para>
+    </sect4>
+    <section>
+    <title>Paragraphs and lists</title>
+     <para>This is a paragraph. This is a paragraph. This is a paragraph. This is a paragraph. This is a paragraph. This is a paragraph. This is a paragraph. This is a paragraph. This is a paragraph.</para>
+    <para>This is an itemized list.</para>
+    <itemizedlist>
+        <listitem>
+            <para>This is a list item.</para>
+        </listitem>
+        <listitem>
+            <para>This is another list item.</para>
+        </listitem><listitem>
+            <para>This is a third list item.</para>
+        </listitem><listitem>
+            <para>This is a fourth list item.</para>
+        </listitem>
+    </itemizedlist>
+    <para>This is an ordered list.</para>
+    <orderedlist>
+        <listitem>
+            <para>This is the first list item.</para>
+        </listitem>
+        <listitem>
+            <para>This is the second list item.</para>
+        </listitem>
+        <listitem>
+            <para>This is the third list item.</para>
+        </listitem>
+        <listitem>
+            <para>This is the fourth list item.</para>
+        </listitem>
+    </orderedlist>
+    </section>
+ <section><title>Illustrations</title>
+     <section><title>Formal Figures</title>
+         <para>Formal Figures have titles and figure numbers</para>
+         <figure id="Fig01" xreflabel = "Figure 1.1"><title>A Multistability Illusion</title>
+             <mediaobject>
+                 <imageobject>
+                     <imagedata fileref="figures/1280px-Multistability.svg.png" scale="30"/>
+                 </imageobject>
+                 <textobject><phrase>An example of a figure.</phrase></textobject>
+             </mediaobject> 
+         </figure>
+         <para>To insert a figure reference, you must 1) add an id attribute in the figure tag and 2) insert an xref xml tag where you want the reference. For example, look at the code to see how I inserted the following referecne to my cross-reference text: <xref linkend="Fig01"/></para>
+     </section>
+     <section><title>Informal Figure</title>
+         <para>Informal Figures have no titles figure numbbers</para>
+         <informalfigure>
+             <mediaobject>
+             <imageobject>
+                 <imagedata fileref="figures/multistability2.gif" scale="30"/>
+             </imageobject>
+             <textobject><phrase>An example of a figure</phrase></textobject>
+         </mediaobject> </informalfigure>
+     </section>
+     <section><title>Tables</title>
+         <para>Tables require alot of line-by-line coding.  View the XML code to see how this table was made.</para>
+         <table frame='all'><title>Sample Table</title>
+             <tgroup cols='5' align='left' colsep='1' rowsep='1'>
+                 <colspec colname='c1'/>
+                 <colspec colname='c2'/>
+                 <colspec colname='c3'/>
+                 <colspec colnum='5' colname='c5'/>
+                 <thead>
+                     <row>
+                         <entry namest="c1" nameend="c2" align="center">Horizontal Span</entry>
+                         <entry>a3</entry>
+                         <entry>a4</entry>
+                         <entry>a5</entry>
+                     </row>
+                 </thead>
+                 <tfoot>
+                     <row>
+                         <entry>f1</entry>
+                         <entry>f2</entry>
+                         <entry>f3</entry>
+                         <entry>f4</entry>
+                         <entry>f5</entry>
+                     </row>
+                 </tfoot>
+                 <tbody>
+                     <row>
+                         <entry>b1</entry>
+                         <entry>b2</entry>
+                         <entry>b3</entry>
+                         <entry>b4</entry>
+                         <entry morerows='1' valign='middle'><para>  <!-- Pernicous Mixed Content -->
+                             Vertical Span</para></entry>
+                     </row>
+                     <row>
+                         <entry>c1</entry>
+                         <entry namest="c2" nameend="c3" align='center' morerows='1' valign='bottom'>Span Both</entry>
+                         <entry>c4</entry>
+                     </row>
+                     <row>
+                         <entry>d1</entry>
+                         <entry>d4</entry>
+                         <entry>d5</entry>
+                     </row>
+                 </tbody>
+             </tgroup>
+         </table>
+     </section>
+ </section>    
+ </chapter>
